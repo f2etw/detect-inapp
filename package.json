@@ -29,6 +29,7 @@
     "babel-polyfill": "^6.23.0",
     "babel-preset-react-native": "^1.9.2",
     "cross-env": "^5.0.0",
+    "clipboard": "^1.6.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.2.0",
@@ -38,6 +39,8 @@
     "jest": "^20.0.3",
     "react": "15.5.4",
     "react-dom": "15.5.4",
-    "react-scripts": "1.0.1"
+    "react-icons": "^2.2.5",
+    "react-scripts": "1.0.1",
+    "primer-css": "^6.0.0"
   }
 }

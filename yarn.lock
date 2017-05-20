@@ -1364,6 +1364,14 @@ cli-width@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.1.0.tgz#b234ca209b29ef66fc518d9b98d5847b00edf00a"
 
+clipboard@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-1.6.1.tgz#65c5b654812466b0faab82dc6ba0f1d2f8e4be53"
+  dependencies:
+    good-listener "^1.2.0"
+    select "^1.1.2"
+    tiny-emitter "^1.0.0"
+
 cliui@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-2.1.0.tgz#4b475760ff80264c762c3a1719032e91c7fea0d1"
@@ -1836,6 +1844,10 @@ del@^2.0.2, del@^2.2.2:
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
+
+delegate@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/delegate/-/delegate-3.1.2.tgz#1e1bc6f5cadda6cb6cbf7e6d05d0bcdd5712aebe"
 
 delegates@^1.0.0:
   version "1.0.0"
@@ -2761,6 +2773,12 @@ globby@^6.1.0:
     object-assign "^4.0.1"
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
+
+good-listener@^1.2.0:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
+  dependencies:
+    delegate "^3.1.2"
 
 got@^5.0.0:
   version "5.7.1"
@@ -4803,6 +4821,194 @@ pretty-format@^20.0.3:
     ansi-regex "^2.1.1"
     ansi-styles "^3.0.0"
 
+primer-alerts@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/primer-alerts/-/primer-alerts-1.1.2.tgz#f2da75ead330448aba71fe82f0fa7a08f20ca72b"
+  dependencies:
+    primer-support "*"
+
+primer-avatars@^0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/primer-avatars/-/primer-avatars-0.4.6.tgz#e439082b8ffbb2b35c3aa232c9501d99dcdf2a43"
+  dependencies:
+    primer-support "*"
+
+primer-base@^0.4.0:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/primer-base/-/primer-base-0.4.2.tgz#10bea7bdd454c447b1ed6e801595f3888b30f01f"
+  dependencies:
+    primer-support "*"
+
+primer-blankslate@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/primer-blankslate/-/primer-blankslate-0.3.5.tgz#f2cd56735935a67e4565ff53c74d5420d11ce77e"
+  dependencies:
+    primer-support "*"
+
+primer-box@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/primer-box/-/primer-box-2.1.2.tgz#e48a38a76035395895b8fe316facc2d135b3f194"
+  dependencies:
+    primer-support "*"
+
+primer-breadcrumb@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/primer-breadcrumb/-/primer-breadcrumb-0.1.1.tgz#d376da76d52c8f1bc65afbe2fd784b4fd6c684a2"
+  dependencies:
+    primer-marketing-support "*"
+    primer-support "*"
+
+primer-buttons@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/primer-buttons/-/primer-buttons-2.0.0.tgz#805e8c07e56b616b2757fef413f4aba98e6e098b"
+  dependencies:
+    primer-support "*"
+
+primer-cards@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/primer-cards/-/primer-cards-0.1.2.tgz#d56f54a2166ca4aa97e9f17650f0b995aaf9e014"
+  dependencies:
+    primer-marketing-support "*"
+    primer-support "*"
+
+primer-core@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/primer-core/-/primer-core-3.0.0.tgz#786ef2fb277c176de62251012d67b1da67657433"
+  dependencies:
+    primer-base "^0.4.0"
+    primer-box "^2.1.2"
+    primer-buttons "^2.0.0"
+    primer-forms "^1.0.6"
+    primer-layout "^0.3.2"
+    primer-navigation "^1.0.0"
+    primer-support "^4.0.0"
+    primer-table-object "^1.0.3"
+    primer-tooltips "^0.5.4"
+    primer-truncate "^0.3.2"
+    primer-utilities "^4.2.4"
+
+primer-css@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/primer-css/-/primer-css-6.0.0.tgz#f3023b87b443bc894119797900088ffa444a04c2"
+  dependencies:
+    primer-core "^3.0.0"
+    primer-marketing "^3.0.0"
+    primer-product "^3.0.0"
+
+primer-forms@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/primer-forms/-/primer-forms-1.0.6.tgz#473db3826146ffd8da1698f86a5517a560b63590"
+  dependencies:
+    primer-support "*"
+
+primer-labels@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/primer-labels/-/primer-labels-1.0.0.tgz#45a2c4173206750ab27e4a584998683101299a40"
+  dependencies:
+    primer-support "*"
+
+primer-layout@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/primer-layout/-/primer-layout-0.3.2.tgz#7f607ac1fad5942f646a05f6a4122a1577407118"
+  dependencies:
+    primer-support "*"
+
+primer-markdown@^3.3.7:
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/primer-markdown/-/primer-markdown-3.3.7.tgz#6a3f5626ce2705266791d565dfc441ac0e9aaa5c"
+  dependencies:
+    primer-support "*"
+
+primer-marketing-support@*, primer-marketing-support@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/primer-marketing-support/-/primer-marketing-support-0.5.0.tgz#ed3ce497b3c4564fe58525d0e19f2cae90a19748"
+
+primer-marketing-type@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/primer-marketing-type/-/primer-marketing-type-0.2.0.tgz#06d03d9473e23dd09b3bae94032a71e0a5cf609e"
+  dependencies:
+    primer-marketing-support "*"
+    primer-support "*"
+
+primer-marketing@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/primer-marketing/-/primer-marketing-3.0.0.tgz#f25326c0fe5695c42c6bcc01443a0b7223d8e24b"
+  dependencies:
+    primer-breadcrumb "^0.1.1"
+    primer-cards "^0.1.2"
+    primer-marketing-support "^0.5.0"
+    primer-marketing-type "^0.2.0"
+    primer-page-headers "^0.1.1"
+    primer-page-sections "^0.1.1"
+    primer-support "^4.0.0"
+    primer-tables "^0.1.2"
+
+primer-navigation@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/primer-navigation/-/primer-navigation-1.0.0.tgz#446a12436f0831f826cfe7012f8827fdbb5f2576"
+  dependencies:
+    primer-support "*"
+
+primer-page-headers@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/primer-page-headers/-/primer-page-headers-0.1.1.tgz#ed0b62348188fef6f0eee8f005fd018ccc7ac248"
+  dependencies:
+    primer-marketing-support "*"
+    primer-support "*"
+
+primer-page-sections@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/primer-page-sections/-/primer-page-sections-0.1.1.tgz#ab9b955f348afca164a559cfb1599b8f3a5ba344"
+  dependencies:
+    primer-marketing-support "*"
+    primer-support "*"
+
+primer-product@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/primer-product/-/primer-product-3.0.0.tgz#98adfa29f6843aa9e3f38a7a8b13660596066079"
+  dependencies:
+    primer-alerts "^1.1.2"
+    primer-avatars "^0.4.6"
+    primer-blankslate "^0.3.5"
+    primer-labels "^1.0.0"
+    primer-markdown "^3.3.7"
+    primer-support "^4.0.0"
+
+primer-support@*, primer-support@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/primer-support/-/primer-support-4.0.0.tgz#3dbbb37e4e0f2ed2ea6035e0b79dd0cb33bae85e"
+
+primer-table-object@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/primer-table-object/-/primer-table-object-1.0.3.tgz#6684eea0bf639bffd9879565d0dcc1c7486fc0b3"
+  dependencies:
+    primer-support "*"
+
+primer-tables@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/primer-tables/-/primer-tables-0.1.2.tgz#582706a9892d1b89393c798180dfd2e59f5da318"
+  dependencies:
+    primer-marketing-support "*"
+    primer-support "*"
+
+primer-tooltips@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/primer-tooltips/-/primer-tooltips-0.5.4.tgz#73d3a5fc7084923f648eebfe1156aa7a0570111b"
+  dependencies:
+    primer-support "*"
+
+primer-truncate@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/primer-truncate/-/primer-truncate-0.3.2.tgz#ffecd0199ab06ea4d3e45c221a8408bc14210a11"
+  dependencies:
+    primer-support "*"
+
+primer-utilities@^4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/primer-utilities/-/primer-utilities-4.2.4.tgz#68b8ce458bb4cc9d69d841fc003fbbbb423a697a"
+  dependencies:
+    primer-support "*"
+
 private@^0.1.6:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.7.tgz#68ce5e8a1ef0a23bb570cc28537b5332aba63ef1"
@@ -4828,6 +5034,12 @@ promise@7.1.1, promise@^7.1.1:
   resolved "https://registry.yarnpkg.com/promise/-/promise-7.1.1.tgz#489654c692616b8aa55b0724fa809bb7db49c5bf"
   dependencies:
     asap "~2.0.3"
+
+prop-types@15.5.8:
+  version "15.5.8"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
+  dependencies:
+    fbjs "^0.8.9"
 
 prop-types@^15.5.7, prop-types@~15.5.7:
   version "15.5.10"
@@ -4968,6 +5180,18 @@ react-error-overlay@^1.0.1:
     react-dev-utils "^1.0.1"
     settle-promise "1.0.0"
     source-map "0.5.6"
+
+react-icon-base@2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/react-icon-base/-/react-icon-base-2.0.7.tgz#0bd18736bd6ce79ca6d69ce8387a07fb8d4ceffe"
+  dependencies:
+    prop-types "15.5.8"
+
+react-icons@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-2.2.5.tgz#f942501c21a4cc0456ce2bbee5032c93f6051dcf"
+  dependencies:
+    react-icon-base "2.0.7"
 
 react-proxy@^1.1.7:
   version "1.1.8"
@@ -5371,6 +5595,10 @@ schema-utils@^0.x:
 select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
+
+select@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
 
 semver-diff@^2.0.0:
   version "2.1.0"
@@ -5841,6 +6069,10 @@ timers-browserify@^2.0.2:
   resolved "https://registry.yarnpkg.com/timers-browserify/-/timers-browserify-2.0.2.tgz#ab4883cf597dcd50af211349a00fbca56ac86b86"
   dependencies:
     setimmediate "^1.0.4"
+
+tiny-emitter@^1.0.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-1.2.0.tgz#6dc845052cb08ebefc1874723b58f24a648c3b6f"
 
 tmp@^0.0.31:
   version "0.0.31"
