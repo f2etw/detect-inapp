@@ -7,15 +7,27 @@ const IS_MOBILE = [
 ];
 
 const BROWSER = {
-  messenger: [/FB\w\w\/Messenger/],
-  facebook: [/FB\w\w\//],
-  line: [/Line\//i],
-  wechat: [/MicroMessenger\//i],
-  instagram: [/ Instagram /i],
-  chrome: [/\\bCrMo\\b|CriOS|Android.*Chrome\/[.0-9]* (Mobile)?/],
+  messenger: [/\bFB\w\w\/Messenger/],
+  facebook: [/\bFB\w\w\//],
+  line: [/\bLine\//i],
+  wechat: [/\bMicroMessenger\//i],
+  instagram: [/\bInstagram/i],
+  chrome: [/\bCrMo\b|CriOS|Android.*Chrome\/[.0-9]* (Mobile)?/],
   safari: [/Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari/],
   ie: [/IEMobile|MSIEMobile/],
   firefox: [/fennec|firefox.*maemo|(Mobile|Tablet).*Firefox|Firefox.*Mobile|FxiOS/],
+};
+
+const OS = {
+  android: [/Android/],
+  ios: [/\biPhone.*Mobile|\biPod|\biPad/],
+  blackberry: [/blackberry|\bBB10\b|rim tablet os/],
+  palm: [/PalmOS|avantgo|blazer|elaine|hiptop|palm|plucker|xiino/],
+  symbian: [/Symbian|SymbOS|Series60|Series40|SYB-[0-9]+|\bS60\b/],
+  windows: [
+    /Windows CE.*(PPC|Smartphone|Mobile|[0-9]{3}x[0-9]{3})|Window Mobile|Windows Phone [0-9.]+|WCE;/,
+    /Windows Phone 10.0|Windows Phone 8.1|Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7|Windows NT 6.[23]; ARM;/,
+  ],
 };
 
 class InApp {
@@ -27,7 +39,7 @@ class InApp {
   }
 
   get os(): string {
-    return '';
+    return findKey(OS, regexs => findKey(regexs, regex => regex.test(this.ua))) || 'other';
   }
 
   get device(): string {

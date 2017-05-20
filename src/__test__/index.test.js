@@ -46,6 +46,12 @@ const MOBILE = {
 
 describe('InApp', () => {
   describe('os', () => {
+    it('iphone', () => {
+      _.forEach(MOBILE.IPHONE, useragents => _.forEach(useragents, (useragent) => {
+        const inapp = new InApp(useragent);
+        expect(inapp.os).toBe('ios');
+      }));
+    });
   });
 
   describe('device', () => {

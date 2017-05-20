@@ -32,11 +32,13 @@ const inapp = new InApp(navigator.userAgent || navigator.vendor || window.opera)
 
 - `inapp.os`
 
+`valuse: 'android', 'ios', 'windows'`
+
 - `inapp.device`
 
 - `inapp.browser`
 
-`valuse: 'messenger' | 'facebook' | 'line' | 'wechat' | 'instagram' | 'chrome' | 'safari' | 'ie' | 'firefox'`
+`valuse: 'messenger', 'facebook', 'line', 'wechat', 'instagram', 'chrome', 'safari', 'ie', 'firefox'`
 
 - `inapp.addMatch('NAME', 'Regex')`
 
