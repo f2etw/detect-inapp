@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "prepublish": "npm run build",
+    "develop": "jest --watch ./src",
     "test": "eslint ./src; jest --coverage ./src",
     "build": "rm -rf lib/* && babel src --ignore __tests__ --out-dir lib"
   },
@@ -20,11 +21,13 @@
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-polyfill": "^6.23.0",
+    "babel-preset-react-native": "^1.9.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
-    "jest": "^20.0.3"
+    "jest": "^20.0.3",
+    "lodash": "^4.17.4"
   }
 }
