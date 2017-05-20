@@ -9,6 +9,7 @@ const IS_MOBILE = [
 const BROWSER = {
   messenger: [/\bFB[\w_]+\/(Messenger|MESSENGER)/],
   facebook: [/\bFB[\w_]+\//],
+  twitter: [/\bTwitter/],
   line: [/\bLine\//i],
   wechat: [/\bMicroMessenger\//i],
   instagram: [/\bInstagram/i],
