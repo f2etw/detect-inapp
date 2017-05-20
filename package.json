@@ -1,0 +1,30 @@
+{
+  "name": "detect-inapp",
+  "version": "1.0.0",
+  "description": "detect browser or in-app information for mobile",
+  "main": "lib/index.js",
+  "repository": "git@github.com:f2etw/detect-inapp.git",
+  "author": "yuting1987@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "npm run build",
+    "test": "eslint ./src; jest --coverage ./src",
+    "build": "rm -rf lib/* && babel src --ignore __tests__ --out-dir lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-polyfill": "^6.23.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "jest": "^20.0.3"
+  }
+}
