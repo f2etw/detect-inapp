@@ -9,9 +9,10 @@ const IS_MOBILE = [
 const BROWSER = {
   messenger: [/\bFB[\w_]+\/(Messenger|MESSENGER)/],
   facebook: [/\bFB[\w_]+\//],
-  twitter: [/\bTwitter/],
+  twitter: [/\bTwitter/i],
   line: [/\bLine\//i],
   wechat: [/\bMicroMessenger\//i],
+  puffin: [/\bPuffin/i],
   miui: [/\bMiuiBrowser\//i],
   instagram: [/\bInstagram/i],
   chrome: [/\bCrMo\b|CriOS|Android.*Chrome\/[.0-9]* (Mobile)?/],

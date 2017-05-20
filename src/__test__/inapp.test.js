@@ -41,6 +41,9 @@ const MOBILE = {
     WECHAT: ['Mozilla/5.0 (Linux; Android 6.0.1; D6653 Build/23.5.A.0.575; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/58.0.3029.83 Mobile Safari/537.36 MicroMessenger/6.5.7.1041 NetType/WIFI Language/zh_TW'],
     CHROME: ['Mozilla/5.0 (Linux; Android 6.0.1; D6653 Build/23.5.A.0.575) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.83 Mobile Safari/537.36'],
   },
+  PIXEL: {
+    puffin: ['Mozilla/5.0 (Linux; Android 7.1.2; Pixel Build/N2G47E; zh-tw) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Mobile Safari/537.36 Puffin/6.0.9.15863AP'],
+  },
   HTC: {
     FACEBOOK: [],
     LINE: [],
