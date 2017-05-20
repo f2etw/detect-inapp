@@ -1,3 +1,12 @@
 body {
   font-family: sans-serif;
 }
+
+.container {
+  width: 100%;
+  max-width: 320px;
+}
+
+.p-3 {
+  margin-top: 3px;
+}

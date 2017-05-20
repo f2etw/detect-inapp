@@ -95,6 +95,15 @@ describe('InApp', () => {
         expect(inapp.os).toBe('ios');
       }));
     });
+
+    it('android', () => {
+      _.forEach(_.concat(
+        MOBILE.SONY, MOBILE.ASUS, MOBILE.PIXEL, MOBILE.REDMI,
+      ), useragents => _.forEach(useragents, (useragent) => {
+        const inapp = new InApp(useragent);
+        expect(inapp.os).toBe('android');
+      }));
+    });
   });
 
   describe('device', () => {
