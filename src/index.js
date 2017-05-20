@@ -10,6 +10,9 @@ class App extends Component {
     return (
       <div>
         <div>UserAgent: {useragent}</div>
+        <div>
+          <a className="github-button" href={`https://github.com/f2etw/detect-inapp/issues/new?title=%5BUserAgent%5D&body=${encodeURIComponent(navigator.userAgent)}`} aria-label="Issue f2etw/detect-inapp on GitHub">Share UserAgent</a>
+        </div>
         <hr />
         <div>os: {inapp.os}</div>
         <div>browser: {inapp.browser}</div>
