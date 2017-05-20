@@ -38,7 +38,7 @@ const inapp = new InApp(navigator.userAgent || navigator.vendor || window.opera)
 
 - `inapp.browser`
 
-`values: 'messenger', 'facebook', 'line', 'twitter', 'wechat', 'instagram', 'chrome', 'safari', 'ie', 'firefox'`
+`values: 'messenger', 'facebook', 'line', 'twitter', 'wechat', 'miui', 'instagram', 'chrome', 'safari', 'ie', 'firefox'`
 
 - `inapp.addMatch('NAME', 'Regex')`
 
