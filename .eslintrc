@@ -13,6 +13,9 @@
     "beforeAll": true,
     "afterAll": true,
     "beforeEach": true,
-    "afterEach": true
+    "afterEach": true,
+    "window": true,
+    "document": true,
+    "navigator": true
   }
 }

@@ -2,7 +2,7 @@
   "name": "detect-inapp",
   "version": "1.1.0",
   "description": "detect browser or in-app information for mobile",
-  "main": "lib/index.js",
+  "main": "lib/inapp.js",
   "repository": "git@github.com:f2etw/detect-inapp.git",
   "author": "yuting1987@gmail.com",
   "license": "MIT",
@@ -10,24 +10,34 @@
     "prepublish": "npm run build",
     "develop": "jest --watch ./src",
     "test": "eslint ./src; jest --coverage ./src",
-    "build": "rm -rf lib/* && babel src --ignore __tests__ --out-dir lib"
+    "build": "rm -rf lib && mkdir lib && babel src/inapp.js --out-file lib/inapp.js",
+    "demo": "react-scripts start",
+    "deploy": "react-scripts build && gh-pages -d build"
   },
+  "homepage": "https://f2etw.github.io/detect-inapp",
   "files": [
     "lib"
   ],
   "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-polyfill": "^6.23.0",
     "babel-preset-react-native": "^1.9.2",
+    "cross-env": "^5.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
+    "gh-pages": "^1.0.0",
     "jest": "^20.0.3",
-    "lodash": "^4.17.4"
+    "react": "15.5.4",
+    "react-dom": "15.5.4",
+    "react-scripts": "1.0.1"
   }
 }

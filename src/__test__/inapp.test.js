@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import InApp from '../index';
+import InApp from '../inapp';
 
 const DESKTOP = {
   MACOS: {
@@ -56,7 +56,7 @@ const MOBILE = {
     MESSENGER: [
       'Mozilla/5.0 (Linux; Android 4.4.2; ASUS_T00F Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 [FB_IAB/MESSENGER;FBAV/118.0.0.19.82;]'
     ],
-    'FACEBOOK LITE': [
+    FACEBOOK: [
       'Mozilla/5.0 (Linux; Android 4.4.2; ASUS_T00F Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36[FBAN/EMA;FBLC/zh_TW;FBAV/42.0.0.3.64;]'
     ],
     CHROME: [
