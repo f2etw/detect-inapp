@@ -12,6 +12,7 @@ const BROWSER = {
   twitter: [/\bTwitter/],
   line: [/\bLine\//i],
   wechat: [/\bMicroMessenger\//i],
+  miui: [/\bMiuiBrowser\//i],
   instagram: [/\bInstagram/i],
   chrome: [/\bCrMo\b|CriOS|Android.*Chrome\/[.0-9]* (Mobile)?/],
   safari: [/Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari/],
@@ -76,7 +77,6 @@ class InApp {
   }
 
   open(appScheme: string): boolean {
-    
     return false;
   }
 
