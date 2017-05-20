@@ -8,6 +8,15 @@ const DESKTOP = {
   WINDOWS: {
   },
   UBUNTU: {
+    CHROME: [
+      'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3100.0 Safari/537.36',
+    ],
+    FIREFOX: [
+      'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:53.0) Gecko/20100101 Firefox/53.0',
+    ],
+    VIVALDI: [
+      'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.114 Safari/537.36 Vivaldi/1.9.818.50',
+    ],
   },
 };
 
@@ -36,6 +45,20 @@ const MOBILE = {
     CHROME: [],
   },
   SAMSUND: {
+  },
+  ASUS: {
+    MESSENGER: [
+      'Mozilla/5.0 (Linux; Android 4.4.2; ASUS_T00F Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 [FB_IAB/MESSENGER;FBAV/118.0.0.19.82;]'
+    ],
+    'FACEBOOK LITE': [
+      'Mozilla/5.0 (Linux; Android 4.4.2; ASUS_T00F Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36[FBAN/EMA;FBLC/zh_TW;FBAV/42.0.0.3.64;]'
+    ],
+    CHROME: [
+      'Mozilla/5.0 (Linux; Android 4.4.2; ASUS_T00F Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.83 Mobile Safari/537.36'
+    ],
+    FIREFOX: [
+      'Mozilla/5.0 (Android 4.4.2; Mobile; rv:53.0) Gecko/53.0 Firefox/53.0'
+    ],
   },
   WINDOWS: {
     FACEBOOK: [],
