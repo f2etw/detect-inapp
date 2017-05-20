@@ -35,7 +35,7 @@ const MOBILE = {
     WECHAT: [],
     CHROME: [],
   },
-  SAMSUND: {
+  SAMSUNG: {
   },
   WINDOWS: {
     FACEBOOK: [],
