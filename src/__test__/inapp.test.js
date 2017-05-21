@@ -262,7 +262,7 @@ describe('InApp', () => {
       ));
     });
 
-    it('is not mobile', () => {
+    it('is not desktop', () => {
       _.forEach(Object.assign({}, MOBILE, TABLET), device => _.forEach(device, useragents =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
