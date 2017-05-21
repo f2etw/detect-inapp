@@ -16,6 +16,7 @@
     "afterEach": true,
     "window": true,
     "document": true,
-    "navigator": true
+    "navigator": true,
+    "alert": true,
   }
 }

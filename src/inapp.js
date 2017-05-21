@@ -1,4 +1,5 @@
 const findKey = require('lodash/findKey');
+const get = require('lodash/get');
 
 // http://detectmobilebrowsers.com/
 const MOBILE = [
@@ -50,7 +51,7 @@ class InApp {
   }
 
   get device(): string {
-    return '';
+    return 'other';
   }
 
   get browser(): string {
@@ -81,12 +82,46 @@ class InApp {
     return false;
   }
 
-  open(appScheme: string): boolean {
-    return false;
+  open(apps: Object): Promise<boolean> {
+    if (document) {
+      return new Promise((resolve) => {
+        const iframe = document.createElement('iframe');
+        let app;
+        let timeout;
+
+        switch (this.os) {
+          case 'ios':
+            app = get(apps, 'ios', {});
+            if (app.store) {
+              timeout = setTimeout(() => {
+                window.location.href = app.store;
+                resolve(false);
+              }, 1500);
+            }
+
+            iframe.onload = () => {
+              clearTimeout(timeout);
+              iframe.parentNode.removeChild(iframe);
+              resolve(true);
+              window.location.href = app.uri;
+            };
+
+            iframe.src = app.uri;
+            iframe.setAttribute('style', 'display:none;');
+            document.body.appendChild(iframe);
+            break;
+          case 'android':
+          default:
+            resolve(false);
+        }
+      });
+    }
+
+    return Promise.resolve(false);
   }
 
   addMatch(name, regex): InApp {
-    return this;
+    this[name] = () => regex.test(this.ua);
   }
 }
 
