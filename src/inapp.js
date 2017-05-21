@@ -206,20 +206,20 @@ class InApp {
     return findKey(BROWSER, regexs => findKey(regexs, regex => regex.test(this.ua))) || 'other';
   }
 
-  isMobile(): boolean {
+  isMobile(): boolean { // is phone and tablet
     return MOBILE[0].test(this.ua) || MOBILE[1].test(this.ua.substr(0, 4)) || false;
   }
 
   isTablet(): boolean {
-    return !!findKey(TABLET, regexs => findKey(regexs, regex => regex.test(this.ua))) || false;
+    return !!findKey(TABLET, regex => regex.test(this.ua)) || false;
   }
 
   isDesktop(): boolean {
-    return !this.isMobile();
+    return !this.isMobile() && !this.isTablet();
   }
 
   inBot(): boolean {
-    return BOT.test(this.ua) || false;
+    return BOT[0].test(this.ua) || false;
   }
 
   isInApp(): boolean {
