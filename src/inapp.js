@@ -78,8 +78,8 @@ class InApp {
     return ['chrome', 'safari', 'ie', 'firefox', 'other'].indexOf(this.browser) < 0;
   }
 
-  isApplePay(): boolean {
-    return false;
+  isApplePay(): boolean { // eslint-disable-line
+    return !!(window && window.ApplePaySession);
   }
 
   open(apps: Object): Promise<boolean> {
