@@ -10,3 +10,7 @@ body {
 .p-3 {
   margin-top: 3px;
 }
+
+textarea {
+  font-family: monospace, monospace;
+}
