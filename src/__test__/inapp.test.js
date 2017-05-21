@@ -277,7 +277,7 @@ describe('InApp', () => {
 
   describe('isInApp', () => {
     it('is in app', () => {
-      _.forEach(MOBILE, device => _.forEach(device, (useragents, name) =>
+      _.forEach(Object.assign({}, MOBILE, TABLET), device => _.forEach(device, (useragents, name) =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
           expect(inapp.isInApp()).toBe(['chrome', 'safari', 'ie', 'firefox'].indexOf(name.toLocaleLowerCase()) < 0);
