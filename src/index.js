@@ -28,7 +28,7 @@ class App extends Component {
     window.ga('send', 'event', 'useragent', useragent, inapp.os);
     window.ga('send', 'event', 'useragent', useragent, inapp.device);
     window.ga('send', 'event', 'useragent', useragent, inapp.browser);
-    window.ga('send', 'event', 'value', value, inapp.device);
+    window.ga('send', 'event', 'value', value.join('&'), inapp.device);
   }
 
   componentDidMount() {
