@@ -207,11 +207,14 @@ class InApp {
   }
 
   isMobile(): boolean { // is phone and tablet
-    return MOBILE[0].test(this.ua) || MOBILE[1].test(this.ua.substr(0, 4)) || false;
+    return this.isTablet() ||
+           MOBILE[0].test(this.ua) ||
+           MOBILE[1].test(this.ua.substr(0, 4)) ||
+           false;
   }
 
   isTablet(): boolean {
-    return !!findKey(TABLET, regex => regex.test(this.ua)) || false;
+    return !!findKey(TABLET, regex => regex.test(this.ua));
   }
 
   isDesktop(): boolean {
