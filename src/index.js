@@ -48,7 +48,9 @@ class App extends Component {
     return (
       <div>
         <div className="container">
-          <div><input id="useragent" defaultValue={value} style={{ width: '100%' }} /></div>
+          <div>
+            <textarea id="useragent" defaultValue={value} style={{ width: '100%' }} rows="10" />
+          </div>
           <div>
             <span className="input-group-button">
               <button className="btn copy" data-clipboard-target="#useragent">
