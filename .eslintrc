@@ -1,10 +1,14 @@
 {
   "extends": "airbnb",
   "parser": "babel-eslint",
+  "env": {
+      "browser": true,
+      "node": true
+  },
   "rules": {
     "no-console": 0,
     "no-useless-escape": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
   "globals": {
     "jest": true,
@@ -15,9 +19,6 @@
     "afterAll": true,
     "beforeEach": true,
     "afterEach": true,
-    "window": true,
-    "document": true,
-    "navigator": true,
-    "alert": true,
+    "ga": true
   }
 }

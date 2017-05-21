@@ -199,6 +199,26 @@ describe('InApp', () => {
   });
 
   describe('device', () => {
+    it('iphone', () => {
+      _.forEach(MOBILE.IPHONE, useragents => _.forEach(useragents, (useragent) => {
+        const inapp = new InApp(useragent);
+        expect(inapp.device).toBe('iphone');
+      }));
+    });
+
+    it('sony', () => {
+      _.forEach(MOBILE.SONY, useragents => _.forEach(useragents, (useragent) => {
+        const inapp = new InApp(useragent);
+        expect(inapp.device).toBe('sony');
+      }));
+    });
+
+    it('samsung', () => {
+      _.forEach(MOBILE.SAMSUNG, useragents => _.forEach(useragents, (useragent) => {
+        const inapp = new InApp(useragent);
+        expect(inapp.device).toBe('samsung');
+      }));
+    });
   });
 
   describe('browser', () => {
