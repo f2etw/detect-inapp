@@ -21,9 +21,13 @@ class App extends Component {
   componentWillMount() {
     const useragent = navigator.userAgent || navigator.vendor || window.opera;
     const inapp = new InApp(useragent);
-    let value = `${useragent}\n`;
-    if (navigator) for (let key in navigator) value += `\n${key}: ${navigator[key]}`; // eslint-disable-line
-    this.setState({ inapp, value });
+    const value = [`${useragent}`];
+    if (navigator) for (let key in navigator) value.push(`${key}=${navigator[key]}`); // eslint-disable-line
+    this.setState({ inapp, value: value.join('\n') });
+    ga('send', 'event', 'useragent', useragent, inapp.os);
+    ga('send', 'event', 'useragent', useragent, inapp.device);
+    ga('send', 'event', 'useragent', useragent, inapp.browser);
+    ga('send', 'event', 'value', value, inapp.device);
   }
 
   componentDidMount() {
