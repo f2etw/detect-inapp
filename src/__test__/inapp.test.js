@@ -233,6 +233,23 @@ describe('InApp', () => {
   });
 
   describe('isTablet', () => {
+    it('is tablet', () => {
+      _.forEach(TABLET, device => _.forEach(device, useragents =>
+        _.forEach(useragents, (useragent) => {
+          const inapp = new InApp(useragent);
+          expect(inapp.isTablet()).toBe(true);
+        }),
+      ));
+    });
+
+    it('is not tablet', () => {
+      _.forEach(Object.assign({}, DESKTOP, MOBILE), device => _.forEach(device, useragents =>
+        _.forEach(useragents, (useragent) => {
+          const inapp = new InApp(useragent);
+          expect(inapp.isTablet()).toBe(false);
+        }),
+      ));
+    });
   });
 
   describe('isDesktop', () => {
