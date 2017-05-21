@@ -77,7 +77,7 @@ class InApp {
   }
 
   inBot(): boolean {
-    return BOT.test(this.ua) || false;
+    return BOT[0].test(this.ua) || false;
   }
 
   isInApp(): boolean {
