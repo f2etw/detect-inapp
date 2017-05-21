@@ -11,6 +11,9 @@ body {
   margin-top: 3px;
 }
 
+.qrcode {
+  text-align: center;
+}
 textarea {
   font-family: monospace, monospace;
 }

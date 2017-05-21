@@ -8,6 +8,7 @@ import GitHub from 'react-icons/lib/go/mark-github';
 import DiffRenamed from 'react-icons/lib/go/diff-renamed';
 import Clipboard from 'clipboard';
 import InApp from './inapp';
+import qrcode from './qrcode.png';
 import './index.css';
 
 class App extends Component {
@@ -106,10 +107,13 @@ class App extends Component {
         </div>
         <hr />
         <div className="container">
+          <div className="qrcode">
+            <img src={qrcode} alt="qrcode" />
+          </div>
           <div>
-            <a className="github-button" href="https://github.com/f2etw/detect-inapp/issues" data-size="large" data-icon="octicon-issue-opened" aria-label="Issue f2etw/detect-inapp on GitHub">Issue</a>&nbsp;
-            <a className="github-button" href="https://github.com/f2etw/detect-inapp/fork" data-size="large" data-icon="octicon-repo-forked" aria-label="Fork f2etw/detect-inapp on GitHub">Fork</a>&nbsp;
-            <a className="github-button" href="https://github.com/f2etw/detect-inapp" data-size="large" data-icon="octicon-star" aria-label="Star f2etw/detect-inapp on GitHub">Star</a>
+            <a className="github-button" href="https://github.com/f2etw/detect-inapp/issues" data-size="large" data-show-count="true" data-icon="octicon-issue-opened" aria-label="Issue f2etw/detect-inapp on GitHub">Issue</a>&nbsp;
+            <a className="github-button" href="https://github.com/f2etw/detect-inapp/fork" data-size="large" data-show-count="true" data-icon="octicon-repo-forked" aria-label="Fork f2etw/detect-inapp on GitHub">Fork</a>&nbsp;
+            <a className="github-button" href="https://github.com/f2etw/detect-inapp" data-size="large" data-show-count="true" data-icon="octicon-star" aria-label="Star f2etw/detect-inapp on GitHub">Star</a>
           </div>
         </div>
       </div>
