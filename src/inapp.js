@@ -8,7 +8,7 @@ const MOBILE = [
 ];
 
 const TABLET = [
-  /(tablet|ipad|playbook|silk)|(android(?!.*mobile))/i,
+  /(tablet|ipad|playbook|silk)/i,
 ];
 
 const BROWSER = {
@@ -63,15 +63,17 @@ class InApp {
   }
 
   isMobile(): boolean {
-    return MOBILE[0].test(this.ua) || MOBILE[1].test(this.ua.substr(0, 4)) || false;
+    return !this.isTablet() &&
+      (MOBILE[0].test(this.ua) || MOBILE[1].test(this.ua.substr(0, 4)) || false);
   }
 
   isTablet(): boolean {
-    return TABLET[0].test(this.ua) || false;
+    return TABLET[0].test(this.ua) ||
+      (/android/.test(this.ua) && !/mobile/.test(this.ua)) || false;
   }
 
   isDesktop(): boolean {
-    return !this.isMobile();
+    return !this.isMobile() && !this.isTablet();
   }
 
   inBot(): boolean {
