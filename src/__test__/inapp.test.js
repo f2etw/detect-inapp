@@ -276,19 +276,23 @@ describe('InApp', () => {
   });
 
   describe('isInApp', () => {
-    _.forEach(MOBILE, device => _.forEach(device, (useragents, name) =>
-      _.forEach(useragents, (useragent) => {
-        const inapp = new InApp(useragent);
-        expect(inapp.isInApp()).toBe(['chrome', 'safari', 'ie', 'firefox'].indexOf(name.toLocaleLowerCase()) < 0);
-      }),
-    ));
+    it('is in app', () => {
+      _.forEach(MOBILE, device => _.forEach(device, (useragents, name) =>
+        _.forEach(useragents, (useragent) => {
+          const inapp = new InApp(useragent);
+          expect(inapp.isInApp()).toBe(['chrome', 'safari', 'ie', 'firefox'].indexOf(name.toLocaleLowerCase()) < 0);
+        }),
+      ));
+    });
 
-    _.forEach(DESKTOP, device => _.forEach(device, useragents =>
-      _.forEach(useragents, (useragent) => {
-        const inapp = new InApp(useragent);
-        expect(inapp.isInApp()).toBe(false);
-      }),
-    ));
+    it('is not in app', () => {
+      _.forEach(DESKTOP, device => _.forEach(device, useragents =>
+        _.forEach(useragents, (useragent) => {
+          const inapp = new InApp(useragent);
+          expect(inapp.isInApp()).toBe(false);
+        }),
+      ));
+    });
   });
 
   describe('isApplePay', () => {
