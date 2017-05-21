@@ -8,6 +8,7 @@ import GitHub from 'react-icons/lib/go/mark-github';
 import DiffRenamed from 'react-icons/lib/go/diff-renamed';
 import Clipboard from 'clipboard';
 import InApp from './inapp';
+import qrcode from './qrcode.png';
 import './index.css';
 
 class App extends Component {
@@ -21,9 +22,13 @@ class App extends Component {
   componentWillMount() {
     const useragent = navigator.userAgent || navigator.vendor || window.opera;
     const inapp = new InApp(useragent);
-    let value = `${useragent}\n`;
-    if (navigator) for (let key in navigator) value += `\n${key}: ${navigator[key]}`; // eslint-disable-line
-    this.setState({ inapp, value });
+    const value = [`${useragent}`];
+    if (navigator) for (let key in navigator) value.push(`${key}=${navigator[key]}`); // eslint-disable-line
+    this.setState({ inapp, value: value.join('\n') });
+    window.ga('send', 'event', 'useragent', useragent, inapp.os);
+    window.ga('send', 'event', 'useragent', useragent, inapp.device);
+    window.ga('send', 'event', 'useragent', useragent, inapp.browser);
+    window.ga('send', 'event', 'value', value.join('&'), inapp.device);
   }
 
   componentDidMount() {
@@ -44,7 +49,9 @@ class App extends Component {
     return (
       <div>
         <div className="container">
-          <div><input id="useragent" defaultValue={value} style={{ width: '100%' }} /></div>
+          <div>
+            <textarea id="useragent" defaultValue={value} style={{ width: '100%' }} rows="10" />
+          </div>
           <div>
             <span className="input-group-button">
               <button className="btn copy" data-clipboard-target="#useragent">
@@ -100,10 +107,13 @@ class App extends Component {
         </div>
         <hr />
         <div className="container">
+          <div className="qrcode">
+            <img src={qrcode} alt="qrcode" />
+          </div>
           <div>
-            <a className="github-button" href="https://github.com/f2etw/detect-inapp/issues" data-size="large" data-icon="octicon-issue-opened" aria-label="Issue f2etw/detect-inapp on GitHub">Issue</a>&nbsp;
-            <a className="github-button" href="https://github.com/f2etw/detect-inapp/fork" data-size="large" data-icon="octicon-repo-forked" aria-label="Fork f2etw/detect-inapp on GitHub">Fork</a>&nbsp;
-            <a className="github-button" href="https://github.com/f2etw/detect-inapp" data-size="large" data-icon="octicon-star" aria-label="Star f2etw/detect-inapp on GitHub">Star</a>
+            <a className="github-button" href="https://github.com/f2etw/detect-inapp/issues" data-size="large" data-show-count="true" data-icon="octicon-issue-opened" aria-label="Issue f2etw/detect-inapp on GitHub">Issue</a>&nbsp;
+            <a className="github-button" href="https://github.com/f2etw/detect-inapp/fork" data-size="large" data-show-count="true" data-icon="octicon-repo-forked" aria-label="Fork f2etw/detect-inapp on GitHub">Fork</a>&nbsp;
+            <a className="github-button" href="https://github.com/f2etw/detect-inapp" data-size="large" data-show-count="true" data-icon="octicon-star" aria-label="Star f2etw/detect-inapp on GitHub">Star</a>
           </div>
         </div>
       </div>

@@ -8,6 +8,15 @@ const DESKTOP = {
     ],
   },
   WINDOWS: {
+    CHROME: [
+      'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+    ],
+    FIREFOX: [
+      'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0',
+    ],
+    IE11: [
+      'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+    ],
   },
   UBUNTU: {
     CHROME: [
@@ -48,8 +57,6 @@ const MOBILE = {
     SAFARI: [
       'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Version/10.0 Mobile/14D27 Safari/602.1',
     ],
-  },
-  IPAD: {
   },
   SONY: {
     MESSENGER: [
@@ -143,6 +150,35 @@ const MOBILE = {
   },
 };
 
+const TABLET = {
+  IPAD: {
+    MESSENGER: [
+      'Mozilla/5.0 (iPad; CPU OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E304 [FBAN/MessengerForiOS;FBAV/117.0.0.36.70;FBBV/57539258;FBDV/iPad4,4;FBMD/iPad;FBSN/iOS;FBSV/10.3.1;FBSS/2;FBCR/;FBID/tablet;FBLC/zh_TW;FBOP/5;FBRV/0]',
+    ],
+    FACEBOOK: [
+      'Mozilla/5.0 (iPad; CPU OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E304 [FBAN/FBIOS;FBAV/92.0.0.46.70;FBBV/57733420;FBDV/iPad4,4;FBMD/iPad;FBSN/iOS;FBSV/10.3.1;FBSS/2;FBCR/;FBID/tablet;FBLC/zh_TW;FBOP/5;FBRV/0]',
+    ],
+    TWITTER: [
+      'Mozilla/5.0 (iPad; CPU OS 10_3_1 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14E304 Twitter for iPhone',
+    ],
+    LINE: [
+      'Mozilla/5.0 (iPad; CPU OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E304 Safari Line/7.3.0',
+    ],
+    INSTAGRAM: [
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E304 Instagram 10.20.0 (iPad4,4; iOS 10_3_1; zh_TW; zh-TW; scale=2.00; gamut=normal; 640x960)',
+    ],
+    WECHAT: [
+      'Mozilla/5.0 (iPad; CPU OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E304 MicroMessenger/6.5.8 NetType/WIFI Language/zh_TW',
+    ],
+    CHROME: [
+      'Mozilla/5.0 (iPad; CPU OS 10_3_1 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/58.0.3029.83 Mobile/14E304 Safari/602.1',
+    ],
+    SAFARI: [
+      'Mozilla/5.0 (iPad; CPU OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',
+    ],
+  },
+};
+
 describe('InApp', () => {
   describe('os', () => {
     it('iphone', () => {
@@ -163,6 +199,26 @@ describe('InApp', () => {
   });
 
   describe('device', () => {
+    it('iphone', () => {
+      _.forEach(MOBILE.IPHONE, useragents => _.forEach(useragents, (useragent) => {
+        const inapp = new InApp(useragent);
+        expect(inapp.device).toBe('iphone');
+      }));
+    });
+
+    it('sony', () => {
+      _.forEach(MOBILE.SONY, useragents => _.forEach(useragents, (useragent) => {
+        const inapp = new InApp(useragent);
+        expect(inapp.device).toBe('sony');
+      }));
+    });
+
+    it('samsung', () => {
+      _.forEach(MOBILE.SAMSUNG, useragents => _.forEach(useragents, (useragent) => {
+        const inapp = new InApp(useragent);
+        expect(inapp.device).toBe('samsung');
+      }));
+    });
   });
 
   describe('browser', () => {
@@ -178,7 +234,7 @@ describe('InApp', () => {
 
   describe('isMobile', () => {
     it('is mobile', () => {
-      _.forEach(MOBILE, device => _.forEach(device, useragents =>
+      _.forEach(Object.assign({}, MOBILE, TABLET), device => _.forEach(device, useragents =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
           expect(inapp.isMobile()).toBe(true);
@@ -197,21 +253,40 @@ describe('InApp', () => {
   });
 
   describe('isTablet', () => {
+    it('is tablet', () => {
+      _.forEach(TABLET, device => _.forEach(device, useragents =>
+        _.forEach(useragents, (useragent) => {
+          const inapp = new InApp(useragent);
+          expect(inapp.isTablet()).toBe(true);
+        }),
+      ));
+    });
+
+    it('is not tablet', () => {
+      _.forEach(Object.assign({}, DESKTOP, MOBILE), device => _.forEach(device, useragents =>
+        _.forEach(useragents, (useragent) => {
+          const inapp = new InApp(useragent);
+          expect(inapp.isTablet()).toBe(false);
+        }),
+      ));
+    });
   });
 
   describe('isDesktop', () => {
-    _.forEach(MOBILE, device => _.forEach(device, useragents =>
-      _.forEach(useragents, (useragent) => {
-        const inapp = new InApp(useragent);
-        expect(inapp.isDesktop()).toBe(false);
-      }),
-    ));
-
-    it('is not mobile', () => {
+    it('is desktop', () => {
       _.forEach(DESKTOP, device => _.forEach(device, useragents =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
           expect(inapp.isDesktop()).toBe(true);
+        }),
+      ));
+    });
+
+    it('is not desktop', () => {
+      _.forEach(Object.assign({}, MOBILE, TABLET), device => _.forEach(device, useragents =>
+        _.forEach(useragents, (useragent) => {
+          const inapp = new InApp(useragent);
+          expect(inapp.isDesktop()).toBe(false);
         }),
       ));
     });
@@ -221,19 +296,23 @@ describe('InApp', () => {
   });
 
   describe('isInApp', () => {
-    _.forEach(MOBILE, device => _.forEach(device, (useragents, name) =>
-      _.forEach(useragents, (useragent) => {
-        const inapp = new InApp(useragent);
-        expect(inapp.isInApp()).toBe(['chrome', 'safari', 'ie', 'firefox'].indexOf(name.toLocaleLowerCase()) < 0);
-      }),
-    ));
+    it('is in app', () => {
+      _.forEach(Object.assign({}, MOBILE, TABLET), device => _.forEach(device, (useragents, name) =>
+        _.forEach(useragents, (useragent) => {
+          const inapp = new InApp(useragent);
+          expect(inapp.isInApp()).toBe(['chrome', 'safari', 'ie', 'firefox'].indexOf(name.toLocaleLowerCase()) < 0);
+        }),
+      ));
+    });
 
-    _.forEach(DESKTOP, device => _.forEach(device, useragents =>
-      _.forEach(useragents, (useragent) => {
-        const inapp = new InApp(useragent);
-        expect(inapp.isInApp()).toBe(false);
-      }),
-    ));
+    it('is not in app', () => {
+      _.forEach(DESKTOP, device => _.forEach(device, useragents =>
+        _.forEach(useragents, (useragent) => {
+          const inapp = new InApp(useragent);
+          expect(inapp.isInApp()).toBe(false);
+        }),
+      ));
+    });
   });
 
   describe('isApplePay', () => {
