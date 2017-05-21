@@ -236,18 +236,20 @@ describe('InApp', () => {
   });
 
   describe('isDesktop', () => {
-    _.forEach(MOBILE, device => _.forEach(device, useragents =>
-      _.forEach(useragents, (useragent) => {
-        const inapp = new InApp(useragent);
-        expect(inapp.isDesktop()).toBe(false);
-      }),
-    ));
-
-    it('is not mobile', () => {
+    it('is desktop', () => {
       _.forEach(DESKTOP, device => _.forEach(device, useragents =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
           expect(inapp.isDesktop()).toBe(true);
+        }),
+      ));
+    });
+
+    it('is not mobile', () => {
+      _.forEach(MOBILE, device => _.forEach(device, useragents =>
+        _.forEach(useragents, (useragent) => {
+          const inapp = new InApp(useragent);
+          expect(inapp.isDesktop()).toBe(false);
         }),
       ));
     });
