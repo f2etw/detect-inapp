@@ -223,7 +223,7 @@ describe('InApp', () => {
     });
 
     it('is not mobile', () => {
-      _.forEach(DESKTOP, device => _.forEach(device, useragents =>
+      _.forEach(Object.assign({}, DESKTOP, TABLET), device => _.forEach(device, useragents =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
           expect(inapp.isMobile()).toBe(false);
@@ -246,7 +246,7 @@ describe('InApp', () => {
     });
 
     it('is not mobile', () => {
-      _.forEach(MOBILE, device => _.forEach(device, useragents =>
+      _.forEach(Object.assign({}, MOBILE, TABLET), device => _.forEach(device, useragents =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
           expect(inapp.isDesktop()).toBe(false);
