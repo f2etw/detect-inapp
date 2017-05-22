@@ -299,8 +299,6 @@ class InApp {
                   }
                 }, 500);
               }
-            } else if (this.browser === 'firefox') {
-              tryOpenInIframe(iframe, app.scheme, start, resolve);
             } else {
               tryOpenInIframe(iframe, app.scheme, start, resolve);
             }
