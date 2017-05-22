@@ -184,6 +184,18 @@ const BOT = [
   /Googlebot|facebookexternalhit|AdsBot-Google|Google Keyword Suggestion|Facebot|YandexBot|YandexMobileBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|Exabot|MJ12bot|YandexImages|TurnitinBot|Pingdom/,
 ];
 
+const tryOpenInIframe = (iframe, scheme, startTime, resolve) => {
+  iframe.src = scheme; // eslint-disable-line no-param-reassign
+  document.body.appendChild(iframe);
+
+  setTimeout(() => {
+    if (new Date().getTime() - startTime < 550) {
+      iframe.parentNode.removeChild(iframe);
+      resolve(false);
+    }
+  }, 500);
+};
+
 class InApp {
 
   ua = '';
@@ -237,12 +249,18 @@ class InApp {
     if (document) {
       return new Promise((resolve) => {
         const iframe = document.createElement('iframe');
+        const start = new Date().getTime();
         let app;
         let timeout;
 
+        iframe.style.border = 'none';
+        iframe.style.width = '1px';
+        iframe.style.height = '1px';
+
         switch (this.os) {
-          case 'ios':
+          case 'ios': {
             app = get(apps, 'ios', {});
+
             if (app.store) {
               timeout = setTimeout(() => {
                 window.location.href = app.store;
@@ -250,18 +268,44 @@ class InApp {
               }, 1500);
             }
 
-            iframe.onload = () => {
-              clearTimeout(timeout);
-              iframe.parentNode.removeChild(iframe);
-              resolve(true);
-              window.location.href = app.uri;
-            };
+            if (this.browser === 'safari') {
+              timeout = setTimeout(() => {
+                clearTimeout(timeout);
+                window.location.href = app.scheme;
+              }, 1500);
+            } else {
+              tryOpenInIframe(iframe, app.scheme, start, resolve);
+            }
 
-            iframe.src = app.uri;
-            iframe.setAttribute('style', 'display:none;');
-            document.body.appendChild(iframe);
             break;
-          case 'android':
+          }
+          case 'android': {
+            app = get(apps, 'android', {});
+
+            if (this.browser === 'chrome') {
+              if (app.packageName) {
+                window.location.href = `intent://#Intent;package=${app.packageName};scheme=${app.scheme};end`;
+                resolve(true);
+              } else {
+                let redirected = false;
+
+                window.location.href = app.scheme;
+                timeout = setTimeout(() => {
+                  if (!document.webkitHidden && !redirected &&
+                    new Date().getTime() - start < 550) {
+                    redirected = true;
+                    resolve(false);
+                  }
+                }, 500);
+              }
+            } else if (this.browser === 'firefox') {
+              tryOpenInIframe(iframe, app.scheme, start, resolve);
+            } else {
+              tryOpenInIframe(iframe, app.scheme, start, resolve);
+            }
+
+            break;
+          }
           default:
             resolve(false);
         }
