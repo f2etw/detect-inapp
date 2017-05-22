@@ -16,6 +16,8 @@ class App extends Component {
   state = {
     inapp: null,
     value: '',
+    useragent: '',
+    isShowButton: true,
     uri: 'twitter://',
   }
 
@@ -24,11 +26,11 @@ class App extends Component {
     const inapp = new InApp(useragent);
     const value = [`${useragent}`];
     if (navigator) for (let key in navigator) value.push(`${key}=${navigator[key]}`); // eslint-disable-line
-    this.setState({ inapp, value: value.join('\n') });
-    window.ga('send', 'event', 'useragent', useragent, inapp.os);
-    window.ga('send', 'event', 'useragent', useragent, inapp.device);
-    window.ga('send', 'event', 'useragent', useragent, inapp.browser);
-    window.ga('send', 'event', 'value', value.join('&'), inapp.device);
+    this.setState({ inapp, useragent, value: value.join('\n') });
+    window.ga('send', 'event', 'inapp.os', useragent, inapp.os);
+    window.ga('send', 'event', 'inapp.device', useragent, inapp.device);
+    window.ga('send', 'event', 'inapp.browser', useragent, inapp.browser);
+    window.ga('send', 'event', 'inapp.value', useragent, value.join('&'));
   }
 
   componentDidMount() {
@@ -43,8 +45,14 @@ class App extends Component {
     if (!reply) alert('Cannot Open'); // eslint-disable-line
   }
 
+  onBrowserClick = (name) => {
+    const { useragent } = this.state;
+    window.ga('send', 'event', 'click.browser', useragent, name);
+    this.setState({ isShowButton: false });
+  }
+
   render() {
-    const { inapp, value, uri } = this.state;
+    const { inapp, value, uri, isShowButton } = this.state;
 
     return (
       <div>
@@ -74,7 +82,10 @@ class App extends Component {
             <div className="border position-absolute right-0 top-0 p-1">inapp.device</div>
           </div>
           <div className="p-3 border position-relative">
-            {inapp.browser}
+            <div>{inapp.browser}</div>
+            {isShowButton && ['Messenger', 'Facebook', 'LINE', 'WeChat', 'Twitter', 'Instagram', 'Snapchat', 'Chrome', 'Firefox', 'Safari', 'Internet', 'Explorer', 'Android Native', 'Vivaldi', 'MI', 'Puffin', 'Other'].map(name => (
+              <button className="btn" onClick={() => this.onBrowserClick(name)}>{name}</button>
+            ))}
             <div className="border position-absolute right-0 top-0 p-1">inapp.browser</div>
           </div>
           <div className="p-3 border position-relative">
