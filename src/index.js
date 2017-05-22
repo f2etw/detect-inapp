@@ -83,7 +83,7 @@ class App extends Component {
           </div>
           <div className="p-3 border position-relative">
             <div>{inapp.browser}</div>
-            {isShowButton && ['Messenger', 'Facebook', 'LINE', 'WeChat', 'Twitter', 'Instagram', 'Snapchat', 'Chrome', 'Firefox', 'Safari', 'Internet', 'Explorer', 'Android Native', 'Vivaldi', 'MI', 'Puffin', 'Other'].map(name => (
+            {isShowButton && ['Messenger', 'Facebook', 'LINE', 'WeChat', 'Twitter', 'Instagram', 'Snapchat', 'Chrome', 'Firefox', 'Safari', 'Internet', 'Explorer', 'Android Native', 'Vivaldi', 'MI', 'Puffin', 'Other', 'QRCode Scanner'].map(name => (
               <button className="btn" onClick={() => this.onBrowserClick(name)}>{name}</button>
             ))}
             <div className="border position-absolute right-0 top-0 p-1">inapp.browser</div>
