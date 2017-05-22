@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const findKey = require('lodash/findKey');
 const get = require('lodash/get');
 
@@ -32,7 +33,7 @@ const PHONE = {
   nintendo: /Nintendo 3DS/,
   amoi: /Amoi/,
   inq: /INQ/,
-  generic: /Tapatalk|PDA;|SAGEM|\bmmp\b|pocket|\bpsp\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\bwap\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser/
+  generic: /Tapatalk|PDA;|SAGEM|\bmmp\b|pocket|\bpsp\b|symbian|Smartphone|smartfon|treo|up.browser|up.link|vodafone|\bwap\b|nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser/,
 };
 
 const TABLET = {
