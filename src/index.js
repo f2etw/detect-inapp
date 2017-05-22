@@ -18,7 +18,8 @@ class App extends Component {
     value: '',
     useragent: '',
     isShowButton: true,
-    uri: 'twitter://',
+    scheme: 'twitter://timeline',
+    packageName: 'com.twitter.android',
   }
 
   componentWillMount() {
@@ -37,11 +38,12 @@ class App extends Component {
     new Clipboard('.copy'); // eslint-disable-line
   }
 
-  onUriChange = e => this.setState({ uri: e.target.value });
+  onSchemeChange = e => this.setState({ scheme: e.target.value });
+  onPackageNameChange = e => this.setState({ packageName: e.target.value });
 
   onOpenClick = async () => {
-    const { inapp, uri } = this.state;
-    const reply = await inapp.open({ ios: { uri } });
+    const { inapp, scheme, packageName } = this.state;
+    const reply = await inapp.open({ [inapp.os]: { scheme, packageName } });
     if (!reply) alert('Cannot Open'); // eslint-disable-line
   }
 
@@ -52,7 +54,7 @@ class App extends Component {
   }
 
   render() {
-    const { inapp, value, uri, isShowButton } = this.state;
+    const { inapp, value, scheme, packageName, isShowButton } = this.state;
 
     return (
       <div>
@@ -106,12 +108,15 @@ class App extends Component {
           </div>
           <div className="p-3 border position-relative">
             <div className="input-group">
-              <input className="form-control" type="text" defaultValue={uri} onChange={this.onUriChange} />
+              <input className="form-control" type="text" defaultValue={scheme} onChange={this.onSchemeChange} placeholder="Scheme" />
               <span className="input-group-button">
                 <button className="btn" onClick={this.onOpenClick}>
                   <DiffRenamed />
                 </button>
               </span>
+              <div>
+                <input className="form-control" type="text" defaultValue={packageName} onChange={this.onPackageNameChange} placeholder="Android package name" />
+              </div>
             </div>
             <div className="border position-absolute right-0 top-0 p-1">inapp.open()</div>
           </div>
