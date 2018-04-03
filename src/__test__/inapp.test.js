@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import InApp from '../inapp';
 
+// check user agents from https://developers.whatismybrowser.com/
+
 const DESKTOP = {
   MACOS: {
     CHROME: [
@@ -79,7 +81,7 @@ const MOBILE = {
     ],
   },
   PIXEL: {
-    puffin: [
+    PUFFIN: [
       'Mozilla/5.0 (Linux; Android 7.1.2; Pixel Build/N2G47E; zh-tw) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Mobile Safari/537.36 Puffin/6.0.9.15863AP',
     ],
   },
@@ -180,47 +182,6 @@ const TABLET = {
 };
 
 describe('InApp', () => {
-  describe('os', () => {
-    it('iphone', () => {
-      _.forEach(MOBILE.IPHONE, useragents => _.forEach(useragents, (useragent) => {
-        const inapp = new InApp(useragent);
-        expect(inapp.os).toBe('ios');
-      }));
-    });
-
-    it('android', () => {
-      _.forEach(_.concat(
-        MOBILE.SONY, MOBILE.ASUS, MOBILE.PIXEL, MOBILE.REDMI,
-      ), useragents => _.forEach(useragents, (useragent) => {
-        const inapp = new InApp(useragent);
-        expect(inapp.os).toBe('android');
-      }));
-    });
-  });
-
-  describe('device', () => {
-    it('iphone', () => {
-      _.forEach(MOBILE.IPHONE, useragents => _.forEach(useragents, (useragent) => {
-        const inapp = new InApp(useragent);
-        expect(inapp.device).toBe('iphone');
-      }));
-    });
-
-    it('sony', () => {
-      _.forEach(MOBILE.SONY, useragents => _.forEach(useragents, (useragent) => {
-        const inapp = new InApp(useragent);
-        expect(inapp.device).toBe('sony');
-      }));
-    });
-
-    it('samsung', () => {
-      _.forEach(MOBILE.SAMSUNG, useragents => _.forEach(useragents, (useragent) => {
-        const inapp = new InApp(useragent);
-        expect(inapp.device).toBe('samsung');
-      }));
-    });
-  });
-
   describe('browser', () => {
     it('browser', () => {
       _.forEach(MOBILE, device => _.forEach(device, (useragents, name) =>
@@ -237,7 +198,7 @@ describe('InApp', () => {
       _.forEach(Object.assign({}, MOBILE, TABLET), device => _.forEach(device, useragents =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
-          expect(inapp.isMobile()).toBe(true);
+          expect(inapp.isMobile).toBe(true);
         }),
       ));
     });
@@ -246,27 +207,7 @@ describe('InApp', () => {
       _.forEach(DESKTOP, device => _.forEach(device, useragents =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
-          expect(inapp.isMobile()).toBe(false);
-        }),
-      ));
-    });
-  });
-
-  describe('isTablet', () => {
-    it('is tablet', () => {
-      _.forEach(TABLET, device => _.forEach(device, useragents =>
-        _.forEach(useragents, (useragent) => {
-          const inapp = new InApp(useragent);
-          expect(inapp.isTablet()).toBe(true);
-        }),
-      ));
-    });
-
-    it('is not tablet', () => {
-      _.forEach(Object.assign({}, DESKTOP, MOBILE), device => _.forEach(device, useragents =>
-        _.forEach(useragents, (useragent) => {
-          const inapp = new InApp(useragent);
-          expect(inapp.isTablet()).toBe(false);
+          expect(inapp.isMobile).toBe(false);
         }),
       ));
     });
@@ -277,7 +218,7 @@ describe('InApp', () => {
       _.forEach(DESKTOP, device => _.forEach(device, useragents =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
-          expect(inapp.isDesktop()).toBe(true);
+          expect(inapp.isDesktop).toBe(true);
         }),
       ));
     });
@@ -286,7 +227,7 @@ describe('InApp', () => {
       _.forEach(Object.assign({}, MOBILE, TABLET), device => _.forEach(device, useragents =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
-          expect(inapp.isDesktop()).toBe(false);
+          expect(inapp.isDesktop).toBe(false);
         }),
       ));
     });
@@ -300,7 +241,7 @@ describe('InApp', () => {
       _.forEach(Object.assign({}, MOBILE, TABLET), device => _.forEach(device, (useragents, name) =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
-          expect(inapp.isInApp()).toBe(['chrome', 'safari', 'ie', 'firefox'].indexOf(name.toLocaleLowerCase()) < 0);
+          expect(inapp.isInApp).toBe(['CHROME', 'SAFARI', 'FIREFOX', 'MIUI', 'PUFFIN'].indexOf(name) < 0);
         }),
       ));
     });
@@ -309,18 +250,9 @@ describe('InApp', () => {
       _.forEach(DESKTOP, device => _.forEach(device, useragents =>
         _.forEach(useragents, (useragent) => {
           const inapp = new InApp(useragent);
-          expect(inapp.isInApp()).toBe(false);
+          expect(inapp.isInApp).toBe(false);
         }),
       ));
     });
-  });
-
-  describe('isApplePay', () => {
-  });
-
-  describe('isInstalled', () => {
-  });
-
-  describe('addMatch', () => {
   });
 });
