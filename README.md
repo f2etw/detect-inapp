@@ -24,31 +24,15 @@ const inapp = new InApp(navigator.userAgent || navigator.vendor || window.opera)
 
 # API Reference
 
-- `inapp.isMobile()`
+- `inapp.isMobile`
 
-- `inapp.isTablet()`
+- `inapp.isDesktop`
 
-- `inapp.isDesktop()`
-
-- `inapp.inBot()`
-
-- `inapp.isInApp()`
-
-- `inapp.isApplePay()`
-
-- `inapp.isInstalled('APP_NAME')`
-
-- `inapp.os`
-
-`values: 'android', 'ios', 'windows'`
-
-- `inapp.device`
+- `inapp.isInApp`
 
 - `inapp.browser`
 
 `values: 'messenger', 'facebook', 'line', 'twitter', 'wechat', 'miui', 'instagram', 'chrome', 'safari', 'ie', 'firefox'`
-
-- `inapp.addMatch('NAME', 'Regex')`
 
 # License
 
