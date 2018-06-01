@@ -25,10 +25,7 @@ class App extends Component {
     const value = [`${useragent}`];
     if (navigator) for (let key in navigator) value.push(`${key}=${navigator[key]}`); // eslint-disable-line
     this.setState({ inapp, value: value.join('\n') });
-    window.ga('send', 'event', 'useragent', useragent, inapp.os);
-    window.ga('send', 'event', 'useragent', useragent, inapp.device);
     window.ga('send', 'event', 'useragent', useragent, inapp.browser);
-    window.ga('send', 'event', 'value', value.join('&'), inapp.device);
   }
 
   componentDidMount() {
@@ -66,32 +63,20 @@ class App extends Component {
         <hr />
         <div className="container">
           <div className="p-3 border position-relative">
-            {inapp.os}
-            <div className="border position-absolute right-0 top-0 p-1">inapp.os</div>
-          </div>
-          <div className="p-3 border position-relative">
-            {inapp.device}
-            <div className="border position-absolute right-0 top-0 p-1">inapp.device</div>
-          </div>
-          <div className="p-3 border position-relative">
             {inapp.browser}
             <div className="border position-absolute right-0 top-0 p-1">inapp.browser</div>
           </div>
           <div className="p-3 border position-relative">
-            {inapp.isMobile() ? 'true' : 'false'}
+            {inapp.isMobile ? 'true' : 'false'}
             <div className="border position-absolute right-0 top-0 p-1">inapp.isMobile()</div>
           </div>
           <div className="p-3 border position-relative">
-            {inapp.isDesktop() ? 'true' : 'false'}
+            {inapp.isDesktop ? 'true' : 'false'}
             <div className="border position-absolute right-0 top-0 p-1">inapp.isDesktop()</div>
           </div>
           <div className="p-3 border position-relative">
-            {inapp.isInApp() ? 'true' : 'false'}
+            {inapp.isInApp ? 'true' : 'false'}
             <div className="border position-absolute right-0 top-0 p-1">inapp.isInApp()</div>
-          </div>
-          <div className="p-3 border position-relative">
-            {inapp.isApplePay() ? 'true' : 'false'}
-            <div className="border position-absolute right-0 top-0 p-1">inapp.isApplePay()</div>
           </div>
           <div className="p-3 border position-relative">
             <div className="input-group">
