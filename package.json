@@ -20,7 +20,7 @@
     "lib"
   ],
   "dependencies": {
-    "lodash": "^4.17.5"
+    "lodash.findkey": "^4.6.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -38,6 +38,7 @@
     "eslint-plugin-react": "^7.0.1",
     "gh-pages": "^1.0.0",
     "jest": "^20.0.3",
+    "lodash": "^4.17.5",
     "primer-css": "^6.0.0",
     "react": "15.5.4",
     "react-dom": "15.5.4",
