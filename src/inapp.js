@@ -1,4 +1,4 @@
-const findKey = require('lodash/findKey');
+const findKey = require('lodash.findkey');
 
 const BROWSER = {
   messenger: /\bFB[\w_]+\/(Messenger|MESSENGER)/,
