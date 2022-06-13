@@ -39,7 +39,7 @@ class InApp {
     const rules = [
       'WebView',
       '(iPhone|iPod|iPad)(?!.*Safari\/)',
-      'Android.*(wv|\.0\.0\.0)',
+      'Android.*(wv)',
     ];
     const regex = new RegExp(`(${rules.join('|')})`, 'ig');
     return Boolean(this.ua.match(regex));
